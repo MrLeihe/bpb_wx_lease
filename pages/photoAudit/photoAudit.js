@@ -254,9 +254,7 @@ Page({
             title: "提交成功"
           })
           setTimeout(function () {
-            wx.redirectTo({
-              url: '../register/register',
-            })
+            that.goNavigatinBack();
           }, 1000);
           
         }else{
@@ -277,6 +275,13 @@ Page({
       complete: function () {
         that.changeCommitStatus();
       },
+    })
+  },
+
+  //回到上一页
+  goNavigatinBack: function(){
+    wx.redirectTo({
+      url: '../register/register',
     })
   },
 

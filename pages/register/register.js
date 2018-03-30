@@ -103,28 +103,8 @@ Page({
       return false;
     }
     console.log('adid--------->' + adId);
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../photoAudit/photoAudit?typeValue=' + that.data.typeValue + '&car_id=' + that.data.car_id + '&ad_id=' + adId,
-    })
-    that.resetKeyboard();
-  },
-
-  resetKeyboard: function(){
-    this.setData({
-      isKeyboard: false, //是否显示键盘
-      specialBtn: false,
-      tapNum: false, //数字键盘是否可以点击
-      keyboardNumber: '1234567890',
-      keyboardAlph: 'QWERTYUIOPASDFGHJKL巛ZXCVBNM',
-      keyboard1:
-      '京津沪冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤川青藏琼宁渝',
-      keyboardValue: '',
-      keyboard2: '',
-      keyboard2For: ['完成'],
-      textArr: [],
-      textValue: '',
-      isFocus: false, //输入框聚焦
-      disabled: true,
     })
   },
 
