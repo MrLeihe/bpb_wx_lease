@@ -1,0 +1,46 @@
+<!--pages/inspect/inspect.wxml-->
+<view class='inspect_container'>
+  <form bindsubmit='inspectCommit'>
+    <view class="qualfied_layout">
+      <radio-group name="radio" bindchange="radioQualfiedChange">
+        <view class='radio_cell'>
+          <label class='label_cell'>
+            <radio value="1" />广告合格</label>
+          <label class='label_cell'>
+            <radio value="2" />广告不合格</label>
+        </view>
+      </radio-group>
+    </view>
+
+    <view class="ouside_layout">
+      <text class='select_tip'>请在下列选项中点击符合要求的审核信息。</text>
+      <view class="item_title">车身广告完整性：</view>
+      <radio-group name="radio" bindchange="radioOutsideChange">
+        <view class='radio_cell'>
+          <label class="label_cell_outside" wx:for="{{outsideItems}}" wx:key="{{item.value}}">
+            <radio value="{{item.value}}"/>{{item.name}}
+          </label>
+        </view>
+      </radio-group>
+    </view>
+
+    <view class="inside_layout">
+      <view class="item_title">车内广告完整性：</view>
+      <radio-group name="radio" bindchange="radioInsideChange">
+        <view class='radio_cell'>
+          <label class="label_cell_outside" wx:for="{{outsideItems}}" wx:key="{{item.value}}">
+            <radio value="{{item.value}}"/>{{item.name}}
+          </label>
+        </view>
+      </radio-group>
+    </view>
+    <view class='remark'>
+      <text class='rematk_title item_title'>备注:</text>
+      <view class='remark_textarea'>
+        <textarea class='text_area' name='remark'></textarea>
+      </view>
+    </view>
+    <button class='inspect_commit' form-type='submit' disabled="{{disabled}}" style="background-color:{{inspectBtnBgBgColor}}" loading="{{btnLoading}}">{{inspectBtnText}}</button>
+  </form>
+
+</view>

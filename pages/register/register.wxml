@@ -1,0 +1,100 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="track-bg">
+    <view class="track-input-block">
+      <block wx:if="{{!isFocus}}">
+        <input id="carcode" disabled="{{disabled}}" class="track-input" maxlength='20' type="text" placeholder="请输入车牌号" bindtap="showKeyboard" />
+      </block>
+      <block wx:else="{{isFocus}}">
+        <input id="carcode" name="carcode" disabled="{{disabled}}" class="track-input" maxlength='20' type="text" placeholder="请输入车牌号" value='{{textValue}}' bindtap="bindFocus" />
+      </block>
+
+      <image class='search-icon' src='../../image/search_icon.png'></image>
+    </view>
+
+    <view class="track-history">
+      <view>
+        <view class="track-history-title">
+        </view>
+        <block wx:if='{{sta==0}}'>
+          <view class="item clbg">
+            <icon type="cancel" size="20" />
+            <label>{{textTips}}</label>
+          </view>
+        </block>
+        <block wx:if='{{sta==1}}'>
+          <view class="item bsbg">
+            <icon type="warn" size="20" />
+            <label>{{textTips}}</label>
+          </view>
+        </block>
+        <block wx:if='{{sta==2}}'>
+          <view class="item sdbg">
+            <icon type="success" size="20" />
+            <label>{{textTips}}</label>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class='item_layout' wx-if='{{showCarInfo}}' bindtap='hideKeyboard'>
+    <view class='item'>
+      <text class='title'>所属租赁公司</text>
+      <text class='content'>{{leaseName}}</text>
+    </view>
+    <view class='item'>
+      <text class='title'>车牌号</text>
+      <text class='content'>{{car_plate_number}}</text>
+    </view>
+    <view class='item'>
+      <text class='title'>选择广告</text>
+      <picker class='picker-border' range="{{nameList}}" bindchange="sourceTypeChange" value="{{sourceTypeIndex}}" mode="selector">
+        <input class="weui-input" wx:if='{{sourceTypeIndex==""}}' id="city" name="lease" maxlength='20' type="text" placeholder="请选择广告" disabled='disabled' />
+        <view class="weui-input" wx:if='{{sourceTypeIndex!=""}}'>{{nameList[sourceTypeIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class='btn_wraper' wx-if='{{showCarInfo}}'>
+    <button class="btn-inspect" bindtap="actionClick">{{actionText}}</button>
+  </view>
+
+</view>
+
+<block wx:if="{{isKeyboard}}">
+  <view class="keyboard">
+
+    <!--省份简写键盘-->
+    <view class="td td_nor" wx:for="{{keyboardValue}}" wx:for-index="idx" wx:for-item="itemName" wx:key="*this" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}" hover-class="board_bg" hover-start-time="0" hover-stay-time="80">
+      {{itemName}}
+    </view>
+
+    <!--数字键盘不可点击-->
+    <view wx:if="{{specialBtn && !tapNum}}" class="td td_num board_bg" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="*this">
+      {{itemName}}
+    </view>
+
+    <!--数字键盘可点击-->
+    <view wx:if="{{specialBtn && tapNum}}" class="td td_num" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="*this" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}" hover-class="board_bg" hover-start-time="0"
+      hover-stay-time="80">
+      {{itemName}}
+    </view>
+
+    <!--字母键盘-->
+    <view wx:if="{{specialBtn}}" class="td td_num" wx:for="{{keyboardAlph}}" wx:for-index="idx" wx:for-item="itemName" wx:key="*this" hover-class="board_bg" hover-start-time="0" hover-stay-time="80">
+      <view class="del_icon" wx:if="{{idx == 19}}" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}">
+        <!--<image src="/images/icon_del.png" mode="aspectFit" class="del_icon"></image>-->
+      </view>
+      <view wx:elif="{{idx != 19}}" bindtap="tapKeyboard" data-index="{{idx}}" data-val="{{itemName}}">
+        {{itemName}}
+      </view>
+    </view>
+
+    <!--完成按钮 start-->
+    <view class="td td_spec_fin" wx:for="{{keyboard2For}}" wx:for-index="idx" wx:for-item="itemName" wx:key="*this" bindtap="tapSpecBtn" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{specialBtn}}" hover-class="board_bg_spec" hover-start-time="0" hover-stay-time="80">
+      {{itemName}}
+    </view>
+    <!--完成按钮 end-->
+  </view>
+</block>

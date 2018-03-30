@@ -1,0 +1,73 @@
+<!--pages/photoAudit/photoAudit.wxml-->
+
+<view class='root_container'>
+  <form bindsubmit='commitAudit'>
+    <view class='photo_container'>
+      <!--正面-->
+      <view class='item_box'>
+        <text class='item_text'>车尾照片</text>
+        <view class='item_image_box'>
+          <view class='image_placeholder_box car_front_placeholder' wx-if='{{showPlaceholder1}}'>
+            <view class='image_placeholder' bindtap='chooseImage' id='front_img'></view>
+          </view>
+          <view class='load_wraper' wx-if='{{showLoading1}}'>
+            <view class="weui-loadmore">
+              <view class="weui-loading"></view>
+            </view>
+          </view>
+          <image class='image_src_box' src='{{imageSrc1}}' bindtap='chooseImage' id='front_img'></image>
+        </view>
+        <text class='item_tips_text'>注：必须同时拍到广告画面和车牌</text>
+      </view>
+      <!--车内-->
+      <view class='item_box'>
+        <text class='item_text'>车内照片</text>
+        <view class='item_image_box'>
+          <view class='image_placeholder_box car_inside_placeholder' wx-if='{{showPlaceholder2}}'>
+            <view class='image_placeholder' bindtap='chooseImage' id='inner_img'></view>
+          </view>
+          <view class='load_wraper' wx-if='{{showLoading2}}'>
+            <view class="weui-loadmore">
+              <view class="weui-loading"></view>
+            </view>
+          </view>
+          <image class='image_src_box' src='{{imageSrc2}}' bindtap='chooseImage' id='inner_img'></image>
+        </view>
+        <text class='item_tips_text'>注：必须同时拍到两个车内广告画面</text>
+      </view>
+      <!--车身左侧-->
+      <view class='item_box'>
+        <text class='item_text'>车身左侧</text>
+        <view class='item_image_box'>
+          <view class='image_placeholder_box car_ouside_left_placeholder' wx-if='{{showPlaceholder3}}'>
+            <view class='image_placeholder' bindtap='chooseImage' id='left_img'></view>
+          </view>
+          <view class='load_wraper' wx-if='{{showLoading3}}'>
+            <view class="weui-loadmore">
+              <view class="weui-loading"></view>
+            </view>
+          </view>
+          <image class='image_src_box' src='{{imageSrc3}}' bindtap='chooseImage' id='left_img'></image>
+        </view>
+        <text class='item_tips_text'>注：以车辆左侧拍摄</text>
+      </view>
+      <!--车身右侧-->
+      <view class='item_box'>
+        <text class='item_text'>车身右侧</text>
+        <view class='item_image_box'>
+          <view class='image_placeholder_box car_ouside_right_placeholder' wx-if='{{showPlaceholder4}}'>
+            <view class='image_placeholder' bindtap='chooseImage' id='right_img'></view>
+          </view>
+          <view class='load_wraper' wx-if='{{showLoading4}}'>
+            <view class="weui-loadmore">
+              <view class="weui-loading"></view>
+            </view>
+          </view>
+          <image class='image_src_box' src='{{imageSrc4}}' bindtap='chooseImage' id='right_img'></image>
+        </view>
+        <text class='item_tips_text'>注：以车辆右侧拍摄</text>
+      </view>
+    </view>
+    <button class='audit_commit' form-type='submit' disabled="{{disabled}}" style="background-color:{{auditBtnBgBgColor}}" loading="{{btnLoading}}">{{auditBtnText}}</button>
+  </form>
+</view>
