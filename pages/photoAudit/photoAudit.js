@@ -75,7 +75,7 @@ Page({
     var clickId = params.target.id;
     var that = this;
     wx.chooseImage({
-      sourceType: sourceType[0],
+      sourceType: sourceType[2],
       sizeType: sizeType[0],
       count: 1,
       success: function (res) {
