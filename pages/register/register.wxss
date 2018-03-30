@@ -1449,12 +1449,12 @@
 }
 
 .title {
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #999;
 }
 
 .content {
-  font-size: 36rpx;
+  font-size: 34rpx;
   color: #333;
 }
 
@@ -1465,7 +1465,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 36rpx;
+  font-size: 34rpx;
   color: #333;
 }
 

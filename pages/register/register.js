@@ -29,6 +29,8 @@ Page({
     idList: [],
     nameList: [],
     sourceTypeIndex: '',
+    car_color: '',
+    car_brand: '',
 
     //键盘
     isKeyboard: false, //是否显示键盘
@@ -204,6 +206,8 @@ Page({
                 typeValue: typeArray[0],
                 showCarInfo: true,
                 car_id: dataBean.car_id,
+                car_color: dataBean.car_color,
+                car_brand: dataBean.car_brand,
               })
               var idList = [];
               var nameList = [];

@@ -48,6 +48,14 @@
       <text class='content'>{{car_plate_number}}</text>
     </view>
     <view class='item'>
+      <text class='title'>车型</text>
+      <text class='content'>{{car_brand}}</text>
+    </view>
+    <view class='item'>
+      <text class='title'>车辆颜色</text>
+      <text class='content'>{{car_color}}</text>
+    </view>
+    <view class='item'>
       <text class='title'>选择广告</text>
       <picker class='picker-border' range="{{nameList}}" bindchange="sourceTypeChange" value="{{sourceTypeIndex}}" mode="selector">
         <input class="weui-input" wx:if='{{sourceTypeIndex==""}}' id="city" name="lease" maxlength='20' type="text" placeholder="请选择广告" disabled='disabled' />
