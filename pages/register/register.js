@@ -49,10 +49,6 @@ Page({
     disabled: true,
   },
 
-  onShow: function () {
-
-  },
-
   previewImage: function (e) {
     var current = e.target.dataset.src;
     wx.previewImage({
@@ -287,18 +283,19 @@ Page({
   },
 
   onReady: function () {
+   
+  },
+  
+  onShow: function () {
     var self = this;
+    self.setData({
+      flag: false
+    });
     //将keyboard1和keyboard2中的所有字符串拆分成一个一个字组成的数组
     self.data.keyboard1 = self.data.keyboard1.split('');
     self.data.keyboard2 = self.data.keyboard2.split('');
     self.setData({
       keyboardValue: self.data.keyboard1
-    });
-  },
-  onShow: function () {
-    var self = this;
-    self.setData({
-      flag: false
     });
   },
 

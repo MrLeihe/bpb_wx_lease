@@ -315,4 +315,21 @@ Page({
     return true;
   },
 
+  //关闭页面
+  closePage: function(){
+    wx.showModal({
+      title: '提示',
+      content: '确定要返回首页吗',
+      success: function(res){
+        if(res.confirm){
+          wx.redirectTo({
+            url: '../register/register',
+          })
+        }else{
+          //do nothing
+        }
+      }
+    })
+  },
+
 })

@@ -87,8 +87,31 @@
 .audit_commit {
   width: 90%;
   border: none;
-  background-color: #ff555c;
+  background-color: #ff5a39;
   color: #fff;
   margin: 0rpx auto;
   margin-top: 80rpx;
+}
+
+.switch-layout{
+  width: 100%;
+  height: 150rpx;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-tab{
+  width: 90rpx;
+  height: 90rpx;
+  background-color: #ff5a39;
+  border-radius: 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.switch-icon{
+  width: 50rpx;
+  height: 50rpx;
 }

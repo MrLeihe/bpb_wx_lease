@@ -70,4 +70,10 @@
     </view>
     <button class='audit_commit' form-type='submit' disabled="{{disabled}}" style="background-color:{{auditBtnBgBgColor}}" loading="{{btnLoading}}">{{auditBtnText}}</button>
   </form>
+
+  <view class='switch-layout'>
+    <view class='switch-tab' bindtap='closePage'>
+      <image class='switch-icon' src='../../image/close.png'></image>
+    </view>
+  </view>
 </view>
